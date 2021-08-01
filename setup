@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/.profile" "$HOME/.profile"
+ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+
+# you need the || true because the set -e option aborts the script if any
+# command returns anything other than 0.
+mkdir -p "$HOME/.local/bin" || true
+ln -sf "$PWD/scripts" "$HOME/.local/bin/scripts"
+
+# move into each directory and execute the setup script inside
+
+for i in vim; do
+	cd $1 && ./setup
+	cd -
+done
