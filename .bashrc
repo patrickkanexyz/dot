@@ -58,7 +58,18 @@ pathprepend() {
 	done
 }
 
+# last arg will be first in path
 pathprepend $SCRIPTS
+
+pathappend \
+  /usr/local/bin \
+  /user/local/sbin \
+  /user/local/games \
+  /user/sbin \
+  /user/bin \
+  /sbin \
+  /bin
+
 # ----------------------------------------------------------------------------- 
 # prompt
 
