@@ -16,7 +16,7 @@ esac
 export TERM=xterm-256color
 export EDITOR=vi
 export VISUAL=vi
-export SCRIPTS="$HOME/.local/bin"
+export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
 export JOURNAL="$HOME/.local/journal"
 #export PDF="$HOME/.local/pdf or something like this
