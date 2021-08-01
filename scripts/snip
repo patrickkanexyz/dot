@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+
+[[ -z $SNIPPETS ]] && echo "SNIPPETS undefined" && exit 1
+
+snip() {
+	SNIPPET="$1"
+	shift
+	if [[ $# > 0 ]]; then	
+		while read LINE
+			do
+				i=1
+				for ARG in $@; do
+					LINE="${LINE//\{$i\}/$ARG}"
+					((i++))
+				done 
+				echo "$LINE"
+			done < "$SNIPPET"
+		exit 0
+	fi
+
+	while read LINE
+		do
+			echo "${LINE}"
+		done < "$SNIPPET"
+}
+
+snip "$@"
+
+# you need to do the find replace loop for all argument on each line, one line at a time.
