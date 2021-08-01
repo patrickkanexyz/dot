@@ -60,4 +60,4 @@ nnoremap <F5> :set list! list?<CR>
 
 set colorcolumn=80
 highlight colorcolumn ctermbg=darkgray ctermfg=red
-
+colorscheme desert
