@@ -5,5 +5,4 @@ your own risk.
 
 TODO's
 + Add .dircolors
-+ Add setup script
 + Add w3m config
