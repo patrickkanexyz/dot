@@ -110,11 +110,23 @@ fi
 
 export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
-export LESS_TERMCAP_me="" 
-export LESS_TERMCAP_se=""
+export LESS_TERMCAP_me="[0m" 
+export LESS_TERMCAP_se="[0m"
 export LESS_TERMCAP_so="[36m" # cyan
-export LESS_TERMCAP_ue=""
+export LESS_TERMCAP_ue="[0m"
 export LESS_TERMCAP_us="[4m" # underline
+
+#termcap terminfo  
+#ks      smkx      make the keypad send commands
+#ke      rmkx      make the keypad send digits
+#vb      flash     emit visual bell
+#mb      blink     start blink
+#md      bold      start bold
+#me      sgr0      turn off bold, blink and underline
+#so      smso      start standout (reverse video)
+#se      rmso      stop standout
+#us      smul      start underline
+#ue      rmul      stop underline
 
 # ----------------------------------------------------------------------------- 
 # completion
