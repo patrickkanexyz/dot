@@ -112,7 +112,7 @@ export LESS_TERMCAP_mb="[35m" # magenta
 export LESS_TERMCAP_md="[33m" # yellow
 export LESS_TERMCAP_me="" 
 export LESS_TERMCAP_se=""
-export LESS_TERMCAP_so="[34m" # blue
+export LESS_TERMCAP_so="[36m" # cyan
 export LESS_TERMCAP_ue=""
 export LESS_TERMCAP_us="[4m" # underline
 
