@@ -19,6 +19,7 @@ export VISUAL=vi
 export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
 export JOURNAL="$HOME/.local/journal"
+export DOT="$HOME/repos/patrickkanexyz/dot/"
 #export PDF="$HOME/.local/pdf or something like this
 
 # ----------------------------------------------------------------------------- 
@@ -87,6 +88,7 @@ alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ?='duck'
 alias ww='w3m'
+alias dot='cd $DOT'
 
 # ----------------------------------------------------------------------------- 
 # functions
