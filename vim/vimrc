@@ -59,5 +59,6 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F5> :set list! list?<CR>
 
 set colorcolumn=80
-highlight colorcolumn ctermbg=darkgray ctermfg=red
+" make this a function key
+highlight colorcolumn ctermbg=darkgray ctermfg=gray
 colorscheme desert
