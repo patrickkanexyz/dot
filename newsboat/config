@@ -1,0 +1,7 @@
+# unbind j, originally next-feed
+unbind-key j
+bind-key j down
+
+# unbind k, originally prev-feed 
+unbind-key k
+bind-key k up
