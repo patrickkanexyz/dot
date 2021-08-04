@@ -1,6 +1,11 @@
 #!/bin/sh
 # add no clobber
 
+if test -z "${1}"; then
+  echo "Usage: mkscript [scriptname]"
+  exit 1
+fi
+
 src="$SCRIPTS/$1"
 
 if test -e "$src"; then
