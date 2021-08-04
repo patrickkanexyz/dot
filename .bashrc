@@ -20,6 +20,7 @@ export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
 export JOURNAL="$HOME/.local/journal"
 export DOT="$HOME/repos/patrickkanexyz/dot/"
+export REPOS="$HOME/repos"
 #export PDF="$HOME/.local/pdf or something like this
 
 # ----------------------------------------------------------------------------- 
@@ -89,6 +90,7 @@ alias snippets='cd $SNIPPETS'
 alias ?='duck'
 alias ww='w3m'
 alias dot='cd $DOT'
+alias repos='cd $REPOS'
 
 # ----------------------------------------------------------------------------- 
 # functions
