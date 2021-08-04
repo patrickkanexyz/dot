@@ -1,2 +1,2 @@
 #!/bin/sh
-git commit -m "${1}"
+exec git commit -m "${1}"
