@@ -1,5 +1,5 @@
 " vimrc
-
+"
 " -----------------------------------------------------------------------------
 " This vimrc is not compaptible with ex/vi.  Use the dedicated .exrc file
 " instead if you need ex/vi configuration.
@@ -62,3 +62,9 @@ set colorcolumn=80
 " make this a function key
 highlight colorcolumn ctermbg=darkgray ctermfg=gray
 colorscheme desert
+
+" Set swapfile location
+set directory^=$HOME/.vim/tmp//
+
+" Set backup location
+set backupdir^=$HOME/.vim/tmp//
