@@ -8,12 +8,16 @@ ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
 
 # you need the || true because the set -e option aborts the script if any
 # command returns anything other than 0.
-mkdir -p "$HOME/.local/bin" || true
-ln -sf "$PWD/scripts" "$HOME/.local/bin/scripts"
+if [ ! -d "$HOME/.local/bin" ]; then
+	mkdir "$HOME/.local" || true
+	mkdir "$HOME/.local/bin" || true
+fi
+
+ln -sf "$PWD/scripts" "$HOME/.local/bin/"
 
 # move into each directory and execute the setup script inside
 
-for i in vim; do
-	cd $1 && ./setup
+for i in vim w3m newsboat; do
+	cd $i && ./setup
 	cd -
 done
