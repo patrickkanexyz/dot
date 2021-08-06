@@ -96,7 +96,13 @@ alias repos='cd $REPOS'
 # functions
 c() {
 	printf "\e[H\e[2J"
-}
+} 
+export c
+
+p() {
+  echo "$USER at $HOSTNAME in $PWD"
+} 
+export p
 
 # ----------------------------------------------------------------------------- 
 # dircolors
