@@ -91,6 +91,7 @@ alias ?='duck'
 alias ww='w3m'
 alias dot='cd $DOT'
 alias repos='cd $REPOS'
+alias cdtmp="cd $(mktemp -d)"
 
 # ----------------------------------------------------------------------------- 
 # functions
