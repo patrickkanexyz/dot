@@ -13,14 +13,15 @@ esac
 # ----------------------------------------------------------------------------- 
 # enviroment variables
 
-export TERM=xterm-256color
+export DOT="$HOME/repos/patrickkanexyz/dot/"
 export EDITOR=vi
-export VISUAL=vi
+export JOURNAL="$HOME/.local/journal"
+export PROJECTS="$HOME/projects"
+export REPOS="$HOME/repos"
 export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
-export JOURNAL="$HOME/.local/journal"
-export DOT="$HOME/repos/patrickkanexyz/dot/"
-export REPOS="$HOME/repos"
+export TERM=xterm-256color
+export VISUAL=vi
 #export PDF="$HOME/.local/pdf or something like this
 
 # ----------------------------------------------------------------------------- 
@@ -85,13 +86,14 @@ export PS1="\e[35m\u\e[32m@\e[36m\H\e[33m \W\e[0m$ "
 # ----------------------------------------------------------------------------- 
 # aliases
 
+alias ?='duck'
+alias cdtmp="cd $(mktemp -d)"
+alias dot='cd $DOT'
+alias projects="cd $PROJECTS"
+alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
-alias ?='duck'
 alias ww='w3m'
-alias dot='cd $DOT'
-alias repos='cd $REPOS'
-alias cdtmp="cd $(mktemp -d)"
 
 # ----------------------------------------------------------------------------- 
 # functions
