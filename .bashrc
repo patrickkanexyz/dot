@@ -62,7 +62,9 @@ pathprepend() {
 }
 
 # last arg will be first in path
-pathprepend $SCRIPTS
+pathprepend \
+  /usr/local/go/bin \
+  $SCRIPTS
 
 pathappend \
   /usr/local/bin \
