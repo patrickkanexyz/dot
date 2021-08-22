@@ -23,6 +23,7 @@ export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
 export VISUAL=vi
 #export PDF="$HOME/.local/pdf or something like this
+export GOPATH="$HOME/go"
 
 # ----------------------------------------------------------------------------- 
 # shell options
