@@ -1,6 +1,7 @@
 #!/bin/sh
 
 set -e
+WORKING_DIR=$PWD
 
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/.profile" "$HOME/.profile"
@@ -13,7 +14,8 @@ if [ ! -d "$HOME/.local/bin" ]; then
 	mkdir "$HOME/.local/bin" || true
 fi
 
-ln -sf "$PWD/scripts" "$HOME/.local/bin/"
+cd $HOME/.local/bin
+ln -s "$WORKING_DIR/scripts" scripts 
 
 # move into each directory and execute the setup script inside
 
