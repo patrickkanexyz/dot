@@ -57,6 +57,7 @@ nnoremap <F2> :set number! number?<CR>
 nnoremap <F3> :set spell! spell?<CR>
 nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F5> :set list! list?<CR>
+nnoremap <F6> :set relativenumber! relativenumber?<CR>
 
 set colorcolumn=80
 " make this a function key
@@ -68,3 +69,12 @@ set directory^=$HOME/.vim/tmp//
 
 " Set backup location
 set backupdir^=$HOME/.vim/tmp//
+
+" Plugins
+" Uses vim-plug
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+call plug#end()
