@@ -61,8 +61,8 @@ nnoremap <F6> :set relativenumber! relativenumber?<CR>
 
 set colorcolumn=80
 " make this a function key
-highlight colorcolumn ctermbg=darkgray ctermfg=gray
 colorscheme desert
+highlight colorcolumn ctermbg=black ctermfg=red
 
 " Set swapfile location
 set directory^=$HOME/.vim/tmp//
