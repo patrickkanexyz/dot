@@ -1,0 +1,85 @@
+#!/bin/sh
+# Codebook:
+# Document how you did things so you don't have to reinvent the wheel.
+# All notes can be exported as HTML for easy of navigation.
+
+# ----------------------- INIT ------------------------------------------------
+# Directory
+# TODO Check enviroment variable $CODEBOOK_ROOT for user defined root.
+# If it is "" then check for $HOME/.local/share/codebook. If that doesn't exist
+# ask it you can create it.  If not, exit.
+# When creating root directory also add lang/ html/ html/templates/ and html/site/
+# If one of those directories doesn't exist, output that it is missing and
+# create it.
+#
+# How could I add a symlink option? (If I want to add it to my dotfiles)
+
+main() {
+	CBROOT=${CODEBOOK_ROOT:-$HOME/.local/share/codebook}
+
+	if [ ! -d "${CBROOT}" ]; then
+		CONT="false"
+		while [ $CONT = "false" ]
+		do
+			read -p "Codebook base directory doesn't exist; create it? (y/N) " ANSWER
+
+			case $ANSWER in
+				"y"|"Y"|"yes")
+					mkdir $CBROOT $CBROOT/lang/ $CBROOT/html/ $CBROOT/html/templates/ \
+					$CBROOT/html/site/
+					CONT="true"
+					;;
+				"n"|"N"|"no")
+					echo "No base directory found. Exiting..."
+					exit 1
+					;;
+				*)
+					echo "${ANSWER} is not a valid response..."
+					;;
+			esac
+
+		done
+	fi
+}
+
+# ----------------------------- COMMAND LINE ----------------------------------
+# Arguments
+# TODO Basic call should be `codebook "lang" "title" (if 2 args then run normally)
+# This should create a new markdown file in the proper "lang" directory.  If
+# the proper lang/ directory doesn't exist, you should make one.
+#
+# If only one argument is given then check if it is `build`.  This should cause
+# the HTML site to be built and stored in html/site/
+# 
+# Any other argument should display `usage`
+#
+# TODO Include support for -h
+
+
+# Helper Functions
+
+# Checks that important subdirectories exist and creates them if they don't.
+checkFileTree() {
+	if [ ! -d "${CBROOT}" ]; then
+		echo "Codebook root directory does not exist. Exiting..."
+		exit 1
+	fi
+	if [ ! -d "${CBROOT}/lang/" ]; then
+		echo "Codebook lang directory does not exist. Exiting..."
+		exit 1
+	fi
+	if [ ! -d "${CBROOT}/html/" ]; then
+		echo "Codebook html directory does not exist. Exiting..."
+		exit 1
+	fi
+	if [ ! -d "${CBROOT}/html/site/" ]; then
+		echo "Codebook html/site directory does not exist. Exiting..."
+		exit 1
+	fi
+	if [ ! -d "${CBROOT}/html/templates/" ]; then
+		echo "Codebook html/templates directory does not exist. Exiting..."
+		exit 1
+	fi
+}
+
+main()
