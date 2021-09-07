@@ -14,9 +14,11 @@
 #
 # How could I add a symlink option? (If I want to add it to my dotfiles)
 
-main() {
+
+main () {
 	CBROOT=${CODEBOOK_ROOT:-$HOME/.local/share/codebook}
 
+	# Check for file tree and initialze it if not found
 	if [ ! -d "${CBROOT}" ]; then
 		CONT="false"
 		while [ $CONT = "false" ]
@@ -39,6 +41,7 @@ main() {
 			esac
 
 		done
+		checkFileTree
 	fi
 }
 
@@ -59,7 +62,7 @@ main() {
 # Helper Functions
 
 # Checks that important subdirectories exist and creates them if they don't.
-checkFileTree() {
+checkFileTree () {
 	if [ ! -d "${CBROOT}" ]; then
 		echo "Codebook root directory does not exist. Exiting..."
 		exit 1
@@ -82,4 +85,4 @@ checkFileTree() {
 	fi
 }
 
-main()
+main
