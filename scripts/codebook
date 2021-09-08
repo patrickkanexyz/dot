@@ -35,6 +35,11 @@ main () {
 		done
 	fi
 	checkFileTree
+
+	if [ $# -gt 2 ]; then
+		usage
+		exit 1
+	fi
 }
 
 # ----------------------------- COMMAND LINE ----------------------------------
@@ -79,6 +84,10 @@ checkFileTree () {
 
 buildFileTree () {
 	mkdir $1 $1/lang/ $1/html/ $1/html/templates/	$1/html/site/
+}
+
+usage () {
+	printf "Usage: codebook [language] [Title]\n"
 }
 
 main $@
