@@ -3,18 +3,6 @@
 # Document how you did things so you don't have to reinvent the wheel.
 # All notes can be exported as HTML for easy of navigation.
 
-# ----------------------- INIT ------------------------------------------------
-# Directory
-# TODO Check enviroment variable $CODEBOOK_ROOT for user defined root.
-# If it is "" then check for $HOME/.local/share/codebook. If that doesn't exist
-# ask it you can create it.  If not, exit.
-# When creating root directory also add lang/ html/ html/templates/ and html/site/
-# If one of those directories doesn't exist, output that it is missing and
-# create it.
-#
-# How could I add a symlink option? (If I want to add it to my dotfiles)
-
-
 main () {
 	CBROOT=${CODEBOOK_ROOT:-$HOME/.local/share/codebook}
 
@@ -27,8 +15,8 @@ main () {
 
 			case $ANSWER in
 				"y"|"Y"|"yes")
-					mkdir $CBROOT $CBROOT/lang/ $CBROOT/html/ $CBROOT/html/templates/ \
-					$CBROOT/html/site/
+					# build file tree
+					buildFileTree $CBROOT
 					CONT="true"
 					;;
 				"n"|"N"|"no")
@@ -41,8 +29,8 @@ main () {
 			esac
 
 		done
-		checkFileTree
 	fi
+	checkFileTree
 }
 
 # ----------------------------- COMMAND LINE ----------------------------------
@@ -68,21 +56,25 @@ checkFileTree () {
 		exit 1
 	fi
 	if [ ! -d "${CBROOT}/lang/" ]; then
-		echo "Codebook lang directory does not exist. Exiting..."
-		exit 1
+		echo "Codebook lang directory does not exist. Creating directory..."
+		mkdir ${CBROOT}/lang/
 	fi
 	if [ ! -d "${CBROOT}/html/" ]; then
-		echo "Codebook html directory does not exist. Exiting..."
-		exit 1
+		echo "Codebook html directory does not exist. Creating directory..."
+		mkdir ${CBROOT}/html/
 	fi
 	if [ ! -d "${CBROOT}/html/site/" ]; then
-		echo "Codebook html/site directory does not exist. Exiting..."
-		exit 1
+		echo "Codebook html/site directory does not exist. Creating directory..."
+		mkdir ${CBROOT}/html/site/
 	fi
 	if [ ! -d "${CBROOT}/html/templates/" ]; then
-		echo "Codebook html/templates directory does not exist. Exiting..."
-		exit 1
+		echo "Codebook html/templates directory does not exist. Creating directory..."
+		mkdir ${CBROOT}/html/templates/
 	fi
+}
+
+buildFileTree () {
+	mkdir $1 $1/lang/ $1/html/ $1/html/templates/	$1/html/site/
 }
 
 main
