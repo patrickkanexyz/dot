@@ -4,6 +4,10 @@
 # All notes can be exported as HTML for easy of navigation.
 
 main () {
+	# commandline arguments
+	LANG=$1
+	TITLE=$2
+
 	CBROOT=${CODEBOOK_ROOT:-$HOME/.local/share/codebook}
 
 	# Check for file tree and initialze it if not found
@@ -77,4 +81,4 @@ buildFileTree () {
 	mkdir $1 $1/lang/ $1/html/ $1/html/templates/	$1/html/site/
 }
 
-main
+main $@
