@@ -36,23 +36,28 @@ main () {
 	fi
 	checkFileTree
 
-	if [ $# -gt 2 ]; then
+	# Check for too many or few args
+	if [ $# -gt 2 ] || [ $# -eq 0 ]; then
 		usage
 		exit 1
 	fi
+
+	# Check if 'build' was selected
+	if [ $# -eq 1 ] && [ $LANG = "build" ]; then
+		echo "Building site..."
+		exit 0
+	fi
+
+	# Add any directories and create new .md file
+	if [ ! -d "${CBROOT}/lang/${LANG}" ]; then
+		echo "Creating directory for ${LANG}"
+		mkdir ${CBROOT}/lang/${LANG}/
+	fi
+	touch ${CBROOT}/lang/${LANG}/$TITLE.md
+	echo "Creating ${TITLE}.md..."
 }
 
 # ----------------------------- COMMAND LINE ----------------------------------
-# Arguments
-# TODO Basic call should be `codebook "lang" "title" (if 2 args then run normally)
-# This should create a new markdown file in the proper "lang" directory.  If
-# the proper lang/ directory doesn't exist, you should make one.
-#
-# If only one argument is given then check if it is `build`.  This should cause
-# the HTML site to be built and stored in html/site/
-# 
-# Any other argument should display `usage`
-#
 # TODO Include support for -h
 
 
