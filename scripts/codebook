@@ -2,6 +2,8 @@
 # Codebook:
 # Document how you did things so you don't have to reinvent the wheel.
 # All notes can be exported as HTML for easy of navigation.
+# Dependencies:
+#		pandoc
 
 main () {
 	# commandline arguments
@@ -45,6 +47,7 @@ main () {
 	# Check if 'build' was selected
 	if [ $# -eq 1 ] && [ $LANG = "build" ]; then
 		echo "Building site..."
+		buildSite
 		exit 0
 	fi
 
@@ -59,7 +62,7 @@ main () {
 
 # ----------------------------- COMMAND LINE ----------------------------------
 # TODO Include support for -h
-
+# TODO Refactor commandline parsing to use 'getopts', see man dash(1)
 
 # Helper Functions
 
@@ -94,5 +97,12 @@ buildFileTree () {
 usage () {
 	printf "Usage: codebook [language] [Title]\n"
 }
+
+buildSite () {
+	# loop through all directories in ${CBROOT}/lang and compile all .md files
+	# into html. All output should go into ${CBROOT}/html/site
+	echo "pandoc --standalone doc.md -o doc.html"
+}
+
 
 main $@
