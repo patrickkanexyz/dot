@@ -1,0 +1,20 @@
+#!/bin/sh
+# set opt -e or whatever kills script on error
+if [ -z $DEFIPULSE_APIKEY ]; then
+	echo "No api key found. Check env variables."
+	exit 1
+fi
+
+API_URL="https://data-api.defipulse.com/api/v1/egs/api/ethgasAPI.json?api-key=${DEFIPULSE_APIKEY}"
+touch /tmp/gasprices.json
+curl -s "${API_URL}" > /tmp/gasprices.json
+
+FAST=$(jq .fast </tmp/gasprices.json)
+AVG=$(jq .average </tmp/gasprices.json)
+SLOW=$(jq .safeLow </tmp/gasprices.json)
+
+FAST=$(echo "${FAST} / 10" | bc)
+AVG=$(echo "${AVG} / 10" | bc)
+SLOW=$(echo "${SLOW} / 10" | bc)
+rm /tmp/gasprices.json
+echo "Gasprices(GWEI): ${FAST}/${AVG}/${SLOW}"
