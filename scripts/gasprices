@@ -1,5 +1,6 @@
 #!/bin/sh
-# set opt -e or whatever kills script on error
+# Get current Eth gas prices from defipulse.com
+
 if [ -z $DEFIPULSE_APIKEY ]; then
 	echo "No api key found. Check env variables."
 	exit 1
