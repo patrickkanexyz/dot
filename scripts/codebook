@@ -4,7 +4,7 @@
 # All notes can be exported as HTML for easy of navigation.
 # Dependencies:
 #		pandoc
-
+#TODO: change language to keywords (see pandoc manual)
 main () {
 	# commandline arguments
 	LANG=$1
