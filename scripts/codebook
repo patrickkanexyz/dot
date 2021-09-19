@@ -57,13 +57,17 @@ main () {
 		echo "Creating directory for ${LANG}"
 		mkdir ${CBROOT}/lang/${LANG}/
 	fi
-	FILE=${CBROOT}/lang/${LANG}/$TITLE.md
+
+	# Remove any spaces from $TITLE
+	FILE_TITLE=$(echo "${TITLE}" | sed "s/ /_/g")
+
+	FILE=${CBROOT}/lang/${LANG}/$FILE_TITLE.md # should inline this
 	touch "${FILE}"
-	echo "Creating ${TITLE}.md..."
+	echo "Creating ${FILE_TITLE}.md..."
 
 	echo "---" >> "${FILE}"
 	echo "title: ${TITLE}" >> "${FILE}"
-	echo "language: ${LANG}" >> "${FILE}"
+	echo "keywords: [${LANG}]" >> "${FILE}"
 	echo "---" >> "${FILE}"
 	
 	vi "${FILE}"
