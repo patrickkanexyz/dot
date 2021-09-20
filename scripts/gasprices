@@ -2,7 +2,7 @@
 # Get current Eth gas prices from defipulse.com
 
 if [ -z $DEFIPULSE_APIKEY ]; then
-	echo "No api key found. Check env variables."
+	echo "No api key found. Check DEFIPULSE_APIKEY env variable."
 	exit 1
 fi
 
