@@ -90,14 +90,15 @@ export CDPATH=".:$REPOS:$DOT:$GOPATH"
 # ----------------------------------------------------------------------------- 
 # aliases
 
-alias ?='duck'
 alias cdtmp="cd $(mktemp -d)"
 alias dot='cd $DOT'
+alias ?='duck'
 alias projects="cd $PROJECTS"
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
+alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
 
 # ----------------------------------------------------------------------------- 
 # functions
