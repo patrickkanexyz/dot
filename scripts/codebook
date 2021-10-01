@@ -68,6 +68,7 @@ main () {
 	echo "---" >> "${FILE}"
 	echo "title: ${TITLE}" >> "${FILE}"
 	echo "keywords: [${LANG}]" >> "${FILE}"
+	echo "copywrite: $(date -d +%Y)" >> "${FILE}"
 	echo "---" >> "${FILE}"
 	
 	vi "${FILE}"
