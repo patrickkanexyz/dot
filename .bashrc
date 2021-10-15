@@ -93,6 +93,7 @@ export CDPATH=".:$REPOS:$DOT:$GOPATH"
 alias cdtmp="cd $(mktemp -d)"
 alias dot='cd $DOT'
 alias ?='duck'
+alias ??='wiby'
 alias projects="cd $PROJECTS"
 alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
