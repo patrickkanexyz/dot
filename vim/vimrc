@@ -7,11 +7,11 @@
 
 " Indentation Options
 set autoindent "new lines inherit the indentation of previous lines
-"set expandtab "convert tabs to spaces
+set expandtab "convert tabs to spaces
 "set filetype indent on "enable indentation rules that are file-type specific (bricked)
 "set shiftround "when shifting lines, round the indent to nearest multiple of 'shiftwidth'
 set shiftwidth=2 "when shifting, indent using four spaces
-"set smarttab " insert 'tabstop' number of spaces when the tab key is pressed
+set smarttab " insert 'tabstop' number of spaces when the tab key is pressed
 set tabstop=2 "indent using two spaces
 set smartindent
 
@@ -59,10 +59,10 @@ nnoremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <F5> :set list! list?<CR>
 nnoremap <F6> :set relativenumber! relativenumber?<CR>
 
-set colorcolumn=80
+"set colorcolumn=80
 " make this a function key
 colorscheme desert
-highlight colorcolumn ctermbg=black ctermfg=red
+"highlight colorcolumn ctermbg=black ctermfg=red
 
 " Set swapfile location
 set directory^=$HOME/.vim/tmp//
@@ -76,5 +76,12 @@ set backupdir^=$HOME/.vim/tmp//
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+" Generates ctags
+Plug 'ludovicchabant/vim-gutentags'
+
+" PHP plugins
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
 
 call plug#end()
