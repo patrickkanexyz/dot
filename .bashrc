@@ -13,6 +13,7 @@ esac
 # ----------------------------------------------------------------------------- 
 # enviroment variables
 
+export BROWSER="brave-browser"
 export DOT="$HOME/repos/patrickkanexyz/dot/"
 export EDITOR=vi
 export JOURNAL="$HOME/.local/journal"
@@ -64,6 +65,8 @@ pathprepend() {
 
 # last arg will be first in path
 pathprepend \
+	$HOME/.local/bin \
+  $HOME/go/bin \
   /usr/local/go/bin \
   $SCRIPTS
 
