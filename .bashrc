@@ -94,6 +94,7 @@ export CDPATH=".:$REPOS:$DOT:$GOPATH"
 # aliases
 
 alias cdtmp="cd $(mktemp -d)"
+alias disk-destroyer='dd'
 alias dot='cd $DOT'
 alias ?='duck'
 alias ??='wiby'
