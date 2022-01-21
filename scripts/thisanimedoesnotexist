@@ -1,4 +1,26 @@
 #!/bin/sh
+# d for download only
+# o file name
+# h help
+while getopts dho: f
+do
+  case $f in
+  d)
+    DLONLY="TRUE" 
+    ;;
+  h)
+    echo "Usage: thisanimedoesnotexist [dh] seed[00000-99999] creativity[0.0-1.0] outputfile[default /tmp/anime.png]"
+    echo "-d download picture, don't display."
+    echo "-h display this help message."
+    exit 0
+    ;;
+  *)
+    echo "Unknown option"
+    exit 1
+    ;;
+  esac
+done
+
 SEED="${1:-00001}"
 CREATIVITY="${2:-0.5}"
 OUTPUTFILE="${3:-/tmp/thisanimedoesnotexist.png}"
