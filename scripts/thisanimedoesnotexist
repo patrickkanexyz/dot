@@ -1,0 +1,8 @@
+#!/bin/sh
+SEED="${1:-00001}"
+CREATIVITY="${2:-0.5}"
+OUTPUTFILE="${3:-/tmp/thisanimedoesnotexist.png}"
+URL="https://thisanimedoesnotexist.ai/results/psi-${CREATIVITY}/seed${SEED}.png"
+curl "${URL}" > "${OUTPUTFILE}"
+
+feh /tmp/anime.png
