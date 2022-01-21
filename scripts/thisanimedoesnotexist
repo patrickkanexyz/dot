@@ -1,7 +1,16 @@
 #!/bin/sh
-# d for download only
-# o file name
-# h help
+# Check dependencies
+
+if [ -z $(command -v curl) ]; then
+  echo "Curl required."
+  exit 1
+fi
+
+if [ -z $(command -v feh) ]; then
+  echo "feh required."
+  exit 1
+fi
+
 while getopts dho: f
 do
   case $f in
