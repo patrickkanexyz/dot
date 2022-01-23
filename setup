@@ -15,8 +15,19 @@ fi
 
 ln -sf "$PWD/scripts" "$HOME/.local/bin/"
 
-# move into each directory and execute the setup script inside
+# update system and install packages
+apt update -y && apt install -y \
+  build-essential \
+  bison \
+  libevent-dev \
+  xorg \
+  openbox \
+  sxhkd \
+  lemonbar \
+  rofi \
+  podman
 
+# move into each directory and execute the setup script inside
 for i in vim w3m newsboat; do
 	cd $i && ./setup
 	cd -
