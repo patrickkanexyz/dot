@@ -25,6 +25,7 @@ apt update -y && apt install -y \
   sxhkd \
   lemonbar \
   rofi \
+  feh \
   podman
 
 # move into each directory and execute the setup script inside
