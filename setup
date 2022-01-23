@@ -2,6 +2,13 @@
 
 set -e
 
+# check that script is run with sudo
+if [ $(whoami) != root ]; then
+  echo "Please run using sudo."
+  exit 1
+fi
+
+# make symbolic links
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/.profile" "$HOME/.profile"
 ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
