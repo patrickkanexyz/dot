@@ -3,7 +3,7 @@
 set -e
 
 # make note of 'setup' directory
-SETUPDIR=${pwd}
+SETUPDIR=$(pwd)
 
 # check that script is run with sudo
 if [ $(whoami) = root ]; then
