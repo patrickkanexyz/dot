@@ -43,3 +43,25 @@ for i in vim w3m newsboat; do
 	cd $i && ./setup
 	cd -
 done
+
+# make note of 'setup' directory
+SETUPDIR=${pwd}
+
+install_tmux() {
+  cd ..
+  git clone https://https://github.com/tmux/tmux
+  cd tmux
+  sudo sh autogen.sh
+  sudo .configure && make
+  cp tmux ~/.local/bin/tmux
+  cd "${SETUPDIR}"
+}
+
+install_st() {
+  cd ..
+  git clone https://github.com/patrickkanexyz/st.git
+  cd st
+  make clean install
+  cp st ~/.local/bin/st
+  cd "${SETUPDIR}"
+}
