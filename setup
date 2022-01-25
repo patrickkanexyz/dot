@@ -2,50 +2,56 @@
 
 set -e
 
+# make note of 'setup' directory
+SETUPDIR=${pwd}
+
 # check that script is run with sudo
 if [ $(whoami) = root ]; then
   echo "Please do not run using sudo."
   exit 1
 fi
 
-# make symbolic links
-ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/.profile" "$HOME/.profile"
-ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+create_directories() {
+  # you need the || true because the set -e option aborts the script if any
+  # command returns anything other than 0.
+  if [ ! -d "$HOME/.local/bin" ]; then
+    mkdir "$HOME/.local" || true
+    mkdir "$HOME/.local/bin" || true
+  fi
+}
 
-# you need the || true because the set -e option aborts the script if any
-# command returns anything other than 0.
-if [ ! -d "$HOME/.local/bin" ]; then
-	mkdir "$HOME/.local" || true
-	mkdir "$HOME/.local/bin" || true
-fi
-
-ln -sf "$PWD/scripts" "$HOME/.local/bin/"
+make_symbolic_links() {
+  ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+  ln -sf "$PWD/.profile" "$HOME/.profile"
+  ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
+  ln -sf "$PWD/scripts" "$HOME/.local/bin/"
+}
 
 # update system and install packages
-sudo apt update -y && apt install -y \
-  build-essential \
-  bison \
-  libevent-dev \
-  xorg \
-  openbox \
-  sxhkd \
-  lemonbar \
-  rofi \
-  feh \
-  podman \
-  vim \
-  w3m \
-  newsboat 
+install_packages() {
+  sudo apt update -y && apt install -y \
+    build-essential \
+    bison \
+    libevent-dev \
+    xorg \
+    openbox \
+    sxhkd \
+    lemonbar \
+    rofi \
+    feh \
+    podman \
+    vim \
+    w3m \
+    newsboat 
+}
 
 # move into each directory and execute the setup script inside
-for i in vim w3m newsboat; do
-	cd $i && ./setup
-	cd -
-done
-
-# make note of 'setup' directory
-SETUPDIR=${pwd}
+run_config_scripts() {
+  for i in vim w3m newsboat; do
+    cd $i && ./setup
+    cd -
+  done
+}
 
 install_tmux() {
   cd ..
@@ -65,3 +71,10 @@ install_st() {
   cp st ~/.local/bin/st
   cd "${SETUPDIR}"
 }
+
+create_directories
+make_symbolic_links
+install_packages
+run_config_scripts
+install_tmux
+install_st
