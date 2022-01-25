@@ -3,7 +3,6 @@
 set -e
 
 # check that script is run with sudo
-# this breaks some things like compiling ST
 if [ $(whoami) = root ]; then
   echo "Please do not run using sudo."
   exit 1
