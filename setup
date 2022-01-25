@@ -6,7 +6,7 @@ set -e
 SETUPDIR=$(pwd)
 
 # check that script is run with sudo
-if [ $(whoami) = root ]; then
+if [ "$(whoami)" = root ]; then
   echo "Please do not run using sudo."
   exit 1
 fi
