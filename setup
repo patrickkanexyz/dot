@@ -3,8 +3,9 @@
 set -e
 
 # check that script is run with sudo
-if [ $(whoami) != root ]; then
-  echo "Please run using sudo."
+# this breaks some things like compiling ST
+if [ $(whoami) = root ]; then
+  echo "Please do not run using sudo."
   exit 1
 fi
 
@@ -23,7 +24,7 @@ fi
 ln -sf "$PWD/scripts" "$HOME/.local/bin/"
 
 # update system and install packages
-apt update -y && apt install -y \
+sudo apt update -y && apt install -y \
   build-essential \
   bison \
   libevent-dev \
@@ -33,7 +34,10 @@ apt update -y && apt install -y \
   lemonbar \
   rofi \
   feh \
-  podman
+  podman \
+  vim \
+  w3m \
+  newsboat 
 
 # move into each directory and execute the setup script inside
 for i in vim w3m newsboat; do
