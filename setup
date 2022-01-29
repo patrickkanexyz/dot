@@ -11,6 +11,18 @@ if [ "$(whoami)" = root ]; then
   exit 1
 fi
 
+set_shell() {
+  case $SHELL in
+    *bash)
+      echo "Shell is Bash"
+      ;;
+    *)
+      echo "Changing login shell to Bash..."
+      chsh -s /bin/bash
+      ;;
+  esac
+}
+
 create_directories() {
   # you need the || true because the set -e option aborts the script if any
   # command returns anything other than 0.
@@ -72,6 +84,7 @@ install_st() {
   cd "${SETUPDIR}"
 }
 
+set_shell
 create_directories
 make_symbolic_links
 B
