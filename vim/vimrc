@@ -49,7 +49,9 @@ set backupdir=~/.cache/vim "dir to store backup files
 set dir=~/.cache/vim "dir to store swap files
 "set spell "spell check (set as toggle)
 
-set viminfo+=n~/.vim/viminfo "change location of viminfo file
+set viminfo+=n~/.cache/vim/viminfo "change location of viminfo file.
+" The viminfo file stores editing history, marks, and other non essential
+" things. It is fine to have this in ~/.cache/
 set autowrite "automatically save current file when switching to another file
 
 " Function Keys
@@ -65,23 +67,23 @@ colorscheme desert
 "highlight colorcolumn ctermbg=black ctermfg=red
 
 " Set swapfile location
-set directory^=$HOME/.vim/tmp//
+set directory^=$HOME/.cache/vim/tmp//
 
 " Set backup location
-set backupdir^=$HOME/.vim/tmp//
+set backupdir^=$HOME/.cache/vim/tmp//
 
 " Plugins
 " Uses vim-plug
 
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " Generates ctags
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 
 " PHP plugins
-Plug 'StanAngeloff/php.vim'
-Plug 'stephpy/vim-php-cs-fixer'
+"Plug 'StanAngeloff/php.vim'
+"Plug 'stephpy/vim-php-cs-fixer'
 
-call plug#end()
+"call plug#end()
