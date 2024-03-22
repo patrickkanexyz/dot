@@ -87,7 +87,7 @@ install_st() {
 set_shell
 create_directories
 make_symbolic_links
-install_packages
+#install_packages
 run_config_scripts
-install_tmux
-install_st
+#install_tmux
+#install_st
