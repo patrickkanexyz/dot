@@ -37,6 +37,8 @@ make_symbolic_links() {
   ln -sf "$PWD/.profile" "$HOME/.profile"
   ln -sf "$PWD/.tmux.conf" "$HOME/.tmux.conf"
   ln -sf "$PWD/scripts" "$HOME/.local/bin/"
+  ln -sf "$PWD/.inputrc" "$HOME/.inputrc"
+  ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 }
 
 # update system and install packages
