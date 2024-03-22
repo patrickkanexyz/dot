@@ -63,7 +63,7 @@ nnoremap <F6> :set relativenumber! relativenumber?<CR>
 
 "set colorcolumn=80
 " make this a function key
-colorscheme desert
+colorscheme default
 "highlight colorcolumn ctermbg=black ctermfg=red
 
 " Set swapfile location
