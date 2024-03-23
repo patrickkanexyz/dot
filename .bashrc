@@ -13,8 +13,8 @@ esac
 # ----------------------------------------------------------------------------- 
 # enviroment variables
 
-export BROWSER="brave-browser"
-export DOT="$HOME/repos/patrickkanexyz/dot/"
+export BROWSER="firefox"
+export DOT="$HOME/repos/github/dot/"
 export EDITOR=vi
 export JOURNAL="$HOME/.local/journal"
 export PROJECTS="$HOME/projects"
@@ -29,7 +29,7 @@ export GOPATH="$HOME/go"
 # ----------------------------------------------------------------------------- 
 # shell options
 
-#shopt -s glopstar
+shopt -s globstar
 
 # ----------------------------------------------------------------------------- 
 # history
@@ -103,7 +103,6 @@ alias repos='cd $REPOS'
 alias scripts='cd $SCRIPTS'
 alias snippets='cd $SNIPPETS'
 alias ww='w3m'
-alias ytdl="python3 ~/.local/lib/python3.7/site-packages/youtube_dl"
 
 # ----------------------------------------------------------------------------- 
 # functions
