@@ -164,3 +164,8 @@ export LESS_TERMCAP_us="[4m" # underline
 owncomp=(greet)
 for i in ${owncomp[@]}; do complete -C $i $i; done
 # same as calling 'complete -C greet greet' for each item.
+
+# Automaticlly start tmux if using an interactive shell.
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+fi
