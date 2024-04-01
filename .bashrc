@@ -16,15 +16,15 @@ esac
 export BROWSER="firefox"
 export DOT="$HOME/repos/github/dot/"
 export EDITOR=vi
+export GOPATH="$HOME/go"
 export JOURNAL="$HOME/.local/journal"
+export NOTES="$HOME/notes"
 export PROJECTS="$HOME/projects"
 export REPOS="$HOME/repos"
 export SCRIPTS="$HOME/.local/bin/scripts"
 export SNIPPETS="$HOME/.local/share/snip"
 export TERM=xterm-256color
 export VISUAL=vi
-#export PDF="$HOME/.local/pdf or something like this
-export GOPATH="$HOME/go"
 
 # ----------------------------------------------------------------------------- 
 # shell options
