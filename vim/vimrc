@@ -54,6 +54,11 @@ set viminfo+=n~/.cache/vim/viminfo "change location of viminfo file.
 " things. It is fine to have this in ~/.cache/
 set autowrite "automatically save current file when switching to another file
 
+" Map leader key to <SPACE>
+nnoremap <SPACE> <Nop>
+let mapleader=' '
+
+nnoremap <Leader>f <cmd>Explore<CR>
 " Function Keys
 nnoremap <F2> :set number! number?<CR>
 nnoremap <F3> :set spell! spell?<CR>
