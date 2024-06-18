@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -z $LOG ]]; then
+    echo "LOG enviroment variable not set. Please set and restart."
+    exit 1
+fi
+
+case "${1}" in
+    "new")
+        NEWLOG="${LOG}/$(date +%F)"
+        touch "${NEWLOG}"
+        echo "Log Entry For $(date +%F)" >> "${NEWLOG}"
+        $VISUAL "${NEWLOG}"
+        ;;
+esac

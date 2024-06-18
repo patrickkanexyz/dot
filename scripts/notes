@@ -1,0 +1,20 @@
+#!/bin/bash
+# My personal note taking system.
+
+if [[ -z $NOTES ]]; then
+    echo 'NOTES enviroment variable not set. Exiting'
+    exit 1
+fi
+
+if [[ $# == 0 ]]; then
+    NEWNOTE=$NOTES/$(date +%4Y%m%d%H%M%S)
+    touch "${NEWNOTE}"
+# at some point add check to make sure file is actually created before trying
+# to open it.
+    $EDITOR "${NEWNOTE}"
+fi
+
+#TODO Add search with grep
+#TODO Add automatic git staging/commiting
+#TODO Check if $EDITOR is vi(m) and if so automatically set filetype=markdown.
+#TODO Pullup last note.
