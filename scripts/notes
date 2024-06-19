@@ -12,7 +12,22 @@ if [[ $# == 0 ]]; then
 # at some point add check to make sure file is actually created before trying
 # to open it.
     $EDITOR "${NEWNOTE}"
+    exit 0
 fi
+
+case "${1}" in
+    "push")
+        echo "Pushing to GitHub..."
+        cd $NOTES
+        git add .
+        git commit -m "note added"
+        git push
+        cd -
+        ;;
+    *)
+        echo "Default case."
+        ;;
+esac
 
 #TODO Add search with grep
 #TODO Add automatic git staging/commiting
